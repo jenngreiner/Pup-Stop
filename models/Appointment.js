@@ -1,14 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Appointment extends Model {}
 
-User.init(
+Appointment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -17,15 +12,21 @@ User.init(
       autoIncrement: true,
     },
     user_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     yard_id:{
       type: DataTypes.STRING,
-      allowNull: false,
+      references: {
+        model: 'yard',
+        key: 'id',
+      },
     },
     datetime: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATETIME,
       allowNull: false,
     },
     num_pets: {
@@ -38,8 +39,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'appointment',
   }
 );
 
-module.exports = User;
+module.exports = Appointment;

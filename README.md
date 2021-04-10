@@ -28,7 +28,7 @@ Pup Stop allows dog owners to rent backyards, providing a safe and controlled en
 
 Click the link below for a video walkthrough.
 
-**[E-Commerce Backend Video Walkthrough](https://drive.google.com/file/d/1ZloeSSO2lyvIVtfjHVM5ugJYg4G8uGeN/view?usp=sharing)**
+**[Pup Stop Video Walkthrough](https://drive.google.com/file/d/1ZloeSSO2lyvIVtfjHVM5ugJYg4G8uGeN/view?usp=sharing)**
 
 ## Usage
 
