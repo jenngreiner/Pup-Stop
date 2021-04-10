@@ -84,6 +84,7 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
 - [MySQL](https://www.mysql.com/)
 - [POSTMan](https://www.postman.com/)
 - [SwaggerHub](https://swagger.io/tools/swaggerhub/)
+- [Google Maps API](https://developers.google.com/maps)
 
 ## License
 
