@@ -1,4 +1,4 @@
-# Project 2
+# Pup Stop
 
 ### Table of Contents:
 
@@ -7,6 +7,10 @@
 - [Description](#description)
 - [Usage](#Usage)
 - [Mock-Up](#Mock-Up)
+- [Getting Started](#Getting-Started)
+- [Contributors](#Contributors)
+- [Credits](#Credits)
+- [License](#License)
 
 ## Deployed Site
 
@@ -14,25 +18,36 @@
 
 ## User Story
 
-As a professional, I need a dynamic way to update and keep track of my daily schedule.
+As a dog owner on the road, I want a place for my pup to run around, so that I don’t have to walk them near dangerous roads.
+As a dog owner that lives in the city, I want to let my dog run around and play in a safe location so that we don't have to walk on a leash.
+As the owner of a nervous or shy dog, I want to let my dog run around and play in an area that doesn’t have a lot of other dogs, so that they can get energy out without being stressed.
 
 ## Description
 
-This application allows users to view their 8-hour schedule for a given work day. The time slots are color coded for past, present, and future hours of the day. Tasks entered are saved to the scheduler, and persist when the user revists the page.
+Pup Stop allows dog owners to rent backyards, providing a safe and controlled environment for some off-leash dog play! Locals can make money by hosting their yard or land, while helping dogs that need private spce to let off some steam. Owners can filter by the type of experience they are lookig for - enclosed areas, distraction-free zones, or puppy playdates.
 
 Click the link below for a video walkthrough.
 
-**[E-Commerce Backend Video Walkthrough](https://drive.google.com/file/d/1ZloeSSO2lyvIVtfjHVM5ugJYg4G8uGeN/view?usp=sharing)**
+**[Pup Stop Video Walkthrough](https://drive.google.com/file/d/1ZloeSSO2lyvIVtfjHVM5ugJYg4G8uGeN/view?usp=sharing)**
 
 ## Usage
+
+Dog owners can search for rentals by location and experience. Each yard has a description, image, and the option to leave reviews for other dog owners. When an ideal pup stop is chosen, owners must sign up to make a reservation. Once logged in, owners can view and manage their existing reservations on the "My Reservations" screen.
+
+Hosts can sign up to host their yard on Pup Stop. Once logged in, hosts can view and manage their reservations in the "My Yard Reservations" screen.
 
 Open the [Work Day Scheduler](https://jenngreiner.github.io/Work-Day-Scheduler-homework5/) in your browser. The current date and time is displayed at the top of the screen. Click on a text area for any given hour and enter a task, then click 'Save' for that hour slot. The color of the time lock will change as the day proceeds; past hours will be grey, the current hour will be red, and future hours will be green.
 
 ## Mock-Up
 
-The following image shows the work day scheduler's appearance and functionality:
+The following images demonstrate the Pup Stop appearance and functionality:
 
-![The user enters a task for 2:00PM; the current time is 11:00AM.](./Assets/images/Work-Day-Scheduler.png)
+![Home Page](./Assets/images/Work-Day-Scheduler.png)
+![Create an account](./Assets/images/Work-Day-Scheduler.png)
+![Become a host](./Assets/images/Work-Day-Scheduler.png)
+![Reserve a Pup Stop](./Assets/images/Work-Day-Scheduler.png)
+![Manage Reservations](./Assets/images/Work-Day-Scheduler.png)
+![Leave a Review](./Assets/images/Work-Day-Scheduler.png)
 
 ## Getting Started
 
@@ -50,8 +65,6 @@ This application will run in any web browser.
 
 Jenn Greiner, Gabe Quakkelar, Justin Westmoreland
 
-​
-
 ## Database Information
 
 Our information was gathered from Denver historical sites as well as Wikipedia. A link for all our information is below:
@@ -62,9 +75,12 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
 ## Credits
 
 - [W3 Schools](https://www.w3schools.com/)
-- [Moment.js](https://momentjs.com/)
+- [Node.js](https://nodejs.dev/)
+- [Express.js](https://expressjs.com/)
+- [Handlebars.js](https://handlebarsjs.com/)
+- [NPM](https://www.npmjs.com/)
+- [NPM dotenv](https://www.npmjs.com/package/dotenv)
 - [MDN Web Docs](https://developer.mozilla.org/)
-- [Bootstrap](https://getbootstrap.com/)
 - [MySQL](https://www.w3schools.com/)
 - [Insomnia](https://www.w3schools.com/)
 
@@ -72,7 +88,7 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
 
 - MIT License
 
-      Copyright (c) [year] [fullname]
+      Copyright (c) 2021
 
       Permission is hereby granted, free of charge, to any person obtaining a copy
       of this software and associated documentation files (the "Software"), to deal
