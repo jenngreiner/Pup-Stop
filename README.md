@@ -109,5 +109,3 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
       SOFTWARE.
 
 ---
-
----
