@@ -19,14 +19,14 @@ Appointment.init(
       },
     },
     yard_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: "yard",
         key: "id",
       },
     },
     datetime: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: false,
     },
     num_pets: {

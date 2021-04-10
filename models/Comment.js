@@ -26,6 +26,13 @@ Comment.init(
         key: "id",
       },
     },
+    yard_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "yard",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
