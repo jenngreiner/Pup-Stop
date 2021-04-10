@@ -16,37 +16,24 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    fname: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lname: {
+    yard_id:{
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+    datetime: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
-    password: {
-      type: DataTypes.STRING,
+    num_pets: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
