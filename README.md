@@ -81,8 +81,9 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
 - [NPM](https://www.npmjs.com/)
 - [NPM dotenv](https://www.npmjs.com/package/dotenv)
 - [MDN Web Docs](https://developer.mozilla.org/)
-- [MySQL](https://www.w3schools.com/)
-- [Insomnia](https://www.w3schools.com/)
+- [MySQL](https://www.mysql.com/)
+- [POSTMan](https://www.postman.com/)
+- [SwaggerHub](https://swagger.io/tools/swaggerhub/)
 
 ## License
 
@@ -107,5 +108,7 @@ Our information was gathered from Denver historical sites as well as Wikipedia. 
       LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
       SOFTWARE.
+
+---
 
 ---
