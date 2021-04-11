@@ -123,3 +123,9 @@ footer.footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
+
+#map {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
