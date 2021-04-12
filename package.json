@@ -1,7 +1,7 @@
 {
   "name": "user-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "### Table of Contents:",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,5 +20,13 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenngreiner/Pup-Stop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jenngreiner/Pup-Stop/issues"
+  },
+  "homepage": "https://github.com/jenngreiner/Pup-Stop#readme"
 }
