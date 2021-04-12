@@ -11,6 +11,14 @@ Yard.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,6 +37,22 @@ Yard.init(
       validate: {
         len: [5],
       },
+    },
+    rate: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    fence: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    water: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    hasPets: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
