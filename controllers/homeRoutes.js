@@ -2,18 +2,11 @@ const router = require("express").Router();
 const { User, Yard, Comment, Appointment } = require("../models");
 const withAuth = require("../utils/auth");
 
+//HOMEPAGE
 // Prevent non logged in users from viewing the homepage
 router.get("/", withAuth, async (req, res) => {
   try {
-    // const userData = await User.findAll({
-    //   attributes: { exclude: ['password'] },
-    //   order: [['name', 'ASC']],
-    // });
-
-    // const users = userData.map((project) => project.get({ plain: true }));
-
     res.render("homepage", {
-      // users,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
@@ -22,6 +15,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+//LOGIN/SIGNUP
 router.get("/login", (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
@@ -42,14 +36,8 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/myreservations", (req, res) => {
-  if (!req.session.logged_in) {
-    res.redirect("/login");
-    return;
-  }
-  res.render("myreservations");
-});
-
+//PROFILE
+// --> /profile
 router.get("/profile", (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");
@@ -58,6 +46,42 @@ router.get("/profile", (req, res) => {
   res.render("userprofile");
 });
 
+//RESERVATIONS
+// --> /myreservations
+router.get("/myreservations", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("myreservations");
+});
+
+//SCHEDULE
+// --> /schedule/#
+router.get("/schedule/:id", async (req, res) => {
+  try {
+    console.log("trying get /schedule/:id");
+    const scheduleData = await Yard.findByPk(req.params.id, {
+      include: [
+        {
+          model: Appointment,
+          attributes: ["datetime", "num_pets"],
+        },
+      ],
+    });
+
+    const schedule = scheduleData.get({ plain: true });
+
+    res.render("yardschedule", {
+      ...schedule,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//YARDS
 // --> localhost:3001/yard
 router.get("/yard", async (req, res) => {
   try {
@@ -105,5 +129,7 @@ router.get("/yard/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//Add get routes for each feature
 
 module.exports = router;
