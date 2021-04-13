@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const { User } = require('../models');
+const { User, Yard, Comment, Appointment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Prevent non logged in users from viewing the homepage
@@ -58,30 +58,51 @@ router.get("/profile", (req, res) => {
   res.render("userprofile");
 });
 
-router.get("/yard/:id", async (req, res) => {
-  // GET
+// --> localhost:3001/yard
+router.get("/yard", async (req, res) => {
   try {
-    const yardData = await Yard.findOne({
-      where: {
-        id: req.params.id,
-      },
-      // be sure to include its associated User and Reservation data
+    // Get all yards and JOIN with user data
+    const yardData = await Yard.findAll({
       include: [
         {
           model: User,
-          attributes: ["id", "fname"],
-        },
-        {
-          model: Appointment,
-          attributes: ["id", "datetime"],
+          attributes: ["fname", "lname"],
         },
       ],
     });
-    if (!yardData) {
-      res.status(404).json({ message: "No yard found with this id!" });
-      return;
-    }
-    res.render("viewyards");
+
+    // Serialize data so the template can read it
+    const yards = yardData.map((yard) => yard.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render("viewyards", {
+      yards,
+      // logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// --> localhost:3001/yard/#
+router.get("/yard/:id", async (req, res) => {
+  try {
+    console.log("trying get /yard/:id");
+    const yardData = await Yard.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["fname", "lname"],
+        },
+      ],
+    });
+    console.log(yardData);
+    const yard = yardData.get({ plain: true });
+    console.log(yard);
+    res.render("yard", {
+      ...yard,
+      // logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
