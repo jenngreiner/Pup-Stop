@@ -23,6 +23,18 @@ const loginFormHandler = async (event) => {
   }
 };
 
+const signupButton = async (event) => {
+  // Stop the browser from submitting the form so we can do so with JavaScript
+  event.preventDefault();
+  console.log("signup button click");
+
+  window.location = "/signup";
+};
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
+
+document
+  .querySelector(".signup-button")
+  .addEventListener("submit", signupButton);
