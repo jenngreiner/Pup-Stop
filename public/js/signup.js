@@ -15,8 +15,8 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log("success!");
       document.location.replace("/");
+      console.log("success!" + response.ok);
     } else {
       console.log("Bad Response");
       alert(response.statusText);
