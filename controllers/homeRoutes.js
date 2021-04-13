@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const { User } = require('../models');
+const { User, Comment, Yard, Appointment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Prevent non logged in users from viewing the homepage
@@ -59,29 +59,22 @@ router.get("/profile", (req, res) => {
 });
 
 router.get("/yard/:id", async (req, res) => {
-  // GET
   try {
-    const yardData = await Yard.findOne({
-      where: {
-        id: req.params.id,
-      },
-      // be sure to include its associated User and Reservation data
+    const yardData = await Yard.findByPk(req.params.id, {
+      // be sure to include its associated User and Comment data
       include: [
         {
           model: User,
-          attributes: ["id", "fname"],
+          attributes: ["fname", "lname"],
         },
         {
-          model: Appointment,
-          attributes: ["id", "datetime"],
+          model: Comment,
+          attributes: ["body", "date_created"],
         },
       ],
     });
-    if (!yardData) {
-      res.status(404).json({ message: "No yard found with this id!" });
-      return;
-    }
-    res.render("viewyards");
+    const yard = yardData.get({ plain: true });
+    res.render("viewyards", { ...yard });
   } catch (err) {
     res.status(500).json(err);
   }
