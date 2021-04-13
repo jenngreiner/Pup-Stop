@@ -42,4 +42,49 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/myreservations", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("myreservations");
+});
+
+router.get("/profile", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("userprofile");
+});
+
+router.get("/yard/:id", async (req, res) => {
+  // GET
+  try {
+    const yardData = await Yard.findOne({
+      where: {
+        id: req.params.id,
+      },
+      // be sure to include its associated User and Reservation data
+      include: [
+        {
+          model: User,
+          attributes: ["id", "fname"],
+        },
+        {
+          model: Appointment,
+          attributes: ["id", "datetime"],
+        },
+      ],
+    });
+    if (!yardData) {
+      res.status(404).json({ message: "No yard found with this id!" });
+      return;
+    }
+    res.render("viewyards");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
