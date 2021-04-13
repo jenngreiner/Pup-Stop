@@ -26,17 +26,9 @@ const loginFormHandler = async (event) => {
 const signupButton = async (event) => {
   // Stop the browser from submitting the form so we can do so with JavaScript
   event.preventDefault();
+  console.log("signup button click");
 
-  // Prevent non logged in users from viewing the homepage
-  router.get("/signup", (req, res) => {
-    // If a session exists, redirect the request to the homepage
-    if (req.session.logged_in) {
-      res.redirect("/");
-      return;
-    }
-
-    res.render("signup");
-  });
+  window.location = "/signup";
 };
 
 document
