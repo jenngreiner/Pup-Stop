@@ -96,9 +96,7 @@ router.get("/yard/:id", async (req, res) => {
         },
       ],
     });
-    console.log(yardData);
     const yard = yardData.get({ plain: true });
-    console.log(yard);
     res.render("yard", {
       ...yard,
       // logged_in: req.session.logged_in,
