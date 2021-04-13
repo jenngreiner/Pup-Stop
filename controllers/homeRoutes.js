@@ -50,4 +50,12 @@ router.get("/myreservations", (req, res) => {
   res.render("myreservations");
 });
 
+router.get("/profile", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("userprofile");
+});
+
 module.exports = router;
