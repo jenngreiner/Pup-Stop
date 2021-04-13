@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Comment, Yard, Appointment } = require("../models");
+const { User, Yard, Comment, Appointment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Prevent non logged in users from viewing the homepage
@@ -58,23 +58,49 @@ router.get("/profile", (req, res) => {
   res.render("userprofile");
 });
 
-router.get("/yard/:id", async (req, res) => {
+// --> localhost:3001/yard
+router.get("/yard", async (req, res) => {
   try {
-    const yardData = await Yard.findByPk(req.params.id, {
-      // be sure to include its associated User and Comment data
+    // Get all yards and JOIN with user data
+    const yardData = await Yard.findAll({
       include: [
         {
           model: User,
           attributes: ["fname", "lname"],
         },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const yards = yardData.map((yard) => yard.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render("viewyards", {
+      yards,
+      // logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// --> localhost:3001/yard/#
+router.get("/yard/:id", async (req, res) => {
+  try {
+    console.log("trying get /yard/:id");
+    const yardData = await Yard.findByPk(req.params.id, {
+      include: [
         {
-          model: Comment,
-          attributes: ["body", "date_created"],
+          model: User,
+          attributes: ["fname", "lname"],
         },
       ],
     });
     const yard = yardData.get({ plain: true });
-    res.render("viewyards", { ...yard });
+    res.render("yard", {
+      ...yard,
+      // logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
