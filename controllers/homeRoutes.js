@@ -143,6 +143,16 @@ router.get("/yard/:id", async (req, res) => {
   }
 });
 
+//ADDYARD
+// --> /addyard
+router.get("/addyard", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("hostcreateaccount");
+});
+
 //Add get routes for each feature
 
 module.exports = router;
