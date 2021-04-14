@@ -7,7 +7,6 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
   try {
     res.render("homepage", {
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -38,12 +37,15 @@ router.get("/signup", (req, res) => {
 
 //PROFILE
 // --> /profile
-router.get("/profile", (req, res) => {
-  if (!req.session.logged_in) {
-    res.redirect("/login");
-    return;
+router.get("/profile", withAuth, (req, res) => {
+  try {
+    res.render("userprofile", {
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.render("userprofile");
 });
 
 //RESERVATIONS
