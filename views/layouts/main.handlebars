@@ -19,9 +19,9 @@
         type="text/css">
 
     <!-- Local CSS-->
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/jass.css">
+    <link href="/css/jass.css" rel="stylesheet">
 
 </head>
 
@@ -29,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-            <img src="./img/pupstoplogo.png" alt="EXPLAINATION" style="width: 40%; ">
+            <img src="/img/pupstoplogo.png" alt="EXPLAINATION" style="width: 40%; ">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +48,15 @@
                 </li>
             </ul>
             <form style="white-space: nowrap;" class="form-inline my-2 my-lg-0">
+                {{#if logged_in}}
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;">Log In</button>
+                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;" id="logout">Logout</button>
+                {{/if}}
+
+                {{#unless logged_in}}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;" id="login">Login</button>
+                {{/unless}}
             </form>
         </div>
     </nav>
@@ -57,11 +64,16 @@
 
 
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}}
     <nav>
         <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
+    {{#unless logged_in}}
+    <nav>
+        <button class="btn" id="login">login</button>
+    </nav>
+    {{/unless}} --}}
     </header>
 
     <main class="container container-fluid mt-5">
@@ -75,7 +87,9 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
-
+    {{#unless logged_in}}
+    <script src="/js/homepagelogin.js"></script>
+    {{/unless}}
 
     <!-- Footer -->
     <footer class="footer bg-light">
