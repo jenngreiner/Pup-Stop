@@ -48,8 +48,15 @@
                 </li>
             </ul>
             <form style="white-space: nowrap;" class="form-inline my-2 my-lg-0">
+                {{#if logged_in}}
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;">Log In</button>
+                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;" id="logout">Logout</button>
+                {{/if}}
+
+                {{#unless logged_in}}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                    style="color: #5B95B3; border-color: #5B95B3; background-color: white;" id="login">Login</button>
+                {{/unless}}
             </form>
         </div>
     </nav>
@@ -57,11 +64,16 @@
 
 
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}}
     <nav>
         <button class="btn" id="logout">logout</button>
     </nav>
     {{/if}}
+    {{#unless logged_in}}
+    <nav>
+        <button class="btn" id="login">login</button>
+    </nav>
+    {{/unless}} --}}
     </header>
 
     <main class="container container-fluid mt-5">
@@ -75,7 +87,9 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
-
+    {{#unless logged_in}}
+    <script src="/js/homepagelogin.js"></script>
+    {{/unless}}
 
     <!-- Footer -->
     <footer class="footer bg-light">

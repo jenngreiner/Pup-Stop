@@ -87,7 +87,7 @@ router.get("/schedule/:id", async (req, res) => {
 
     res.render("yardschedule", {
       ...schedule,
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -114,7 +114,7 @@ router.get("/yard", async (req, res) => {
     // Pass serialized data and session flag into template
     res.render("viewyards", {
       yards,
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -136,7 +136,7 @@ router.get("/yard/:id", async (req, res) => {
     const yard = yardData.get({ plain: true });
     res.render("yard", {
       ...yard,
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -150,7 +150,7 @@ router.get("/addyard", (req, res) => {
     res.redirect("/login");
     return;
   }
-  res.render("hostcreateaccount");
+  res.render("hostcreateaccount", { logged_in: req.session.logged_in });
 });
 
 //Add get routes for each feature
