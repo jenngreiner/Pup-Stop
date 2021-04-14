@@ -71,14 +71,15 @@ router.get("/myreservations", (req, res) => {
 
 //SCHEDULE
 // --> /schedule/#
-router.get("/schedule/:id", async (req, res) => {
+router.get("/schedule/", async (req, res) => {
   try {
-    console.log("trying get /schedule/:id");
-    const scheduleData = await Yard.findByPk(req.params.id, {
+    console.log("asdas trying get /schedule/:id");
+    const scheduleData = await Appointment.findAll({
+      where: { id: 1 },
       include: [
         {
-          model: Appointment,
-          attributes: ["datetime", "num_pets"],
+          model: Yard,
+          attributes: ["user_id"],
         },
       ],
     });
