@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 //HOMEPAGE
 // Prevent non logged in users from viewing the homepage
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     res.render("homepage", {
       logged_in: req.session.logged_in,
