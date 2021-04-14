@@ -37,10 +37,21 @@ router.get("/signup", (req, res) => {
 
 //PROFILE
 // --> /profile
-router.get("/profile", withAuth, (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
+    console.log("trying get /profile " + req.session.user_id);
+    const userData = await User.findByPk(req.session.user_id, {
+      exclude: ["password"],
+      include: [
+        {
+          model: Yard,
+          attributes: ["name", "description"],
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
     res.render("userprofile", {
-      // Pass the logged in flag to the template
+      ...user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
