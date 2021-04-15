@@ -61,12 +61,33 @@ router.get("/profile", withAuth, async (req, res) => {
 
 //RESERVATIONS
 // --> /myreservations
-router.get("/myreservations", (req, res) => {
-  if (!req.session.logged_in) {
-    res.redirect("/login");
-    return;
+router.get("/myreservations", async (req, res) => {
+  try {
+    console.log("trying get /myreservations" + req.session.user_id);
+    const userData = await User.findByPk(req.session.user_id
+    , {
+      include: [
+        {
+          model: Appointment,
+          attributes: ["datetime", "num_pets", "yard_id"],
+        },
+      ],
+    }
+    );
+        const user = userData.get({ plain: true });
+        const userTwo = { 
+          fname: user.fname,
+          datetime: user.appointments[0].datetime,
+          yardId: user.appointments[0].yard_id,
+        }
+console.log(userTwo);
+    res.render("myreservations", {
+      ...userTwo,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.render("myreservations");
 });
 
 //SCHEDULE
