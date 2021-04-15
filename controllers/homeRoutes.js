@@ -74,11 +74,15 @@ router.get("/myreservations", async (req, res) => {
       ],
     }
     );
-    // const userAppts = userData.map((user) => user.get({ plain: true }));
         const user = userData.get({ plain: true });
-console.log(user);
+        const userTwo = { 
+          fname: user.fname,
+          datetime: user.appointments[0].datetime,
+          yardId: user.appointments[0].yard_id,
+        }
+console.log(userTwo);
     res.render("myreservations", {
-      ...user,
+      ...userTwo,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
