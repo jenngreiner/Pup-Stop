@@ -1,6 +1,7 @@
-const login = () => {
+const login = (event) => {
+  event.preventDefault();
   console.log("login clicked");
-  document.location.replace("/login");
+  window.location = "/login";
 };
 
 document.querySelector("#login").addEventListener("click", login);
