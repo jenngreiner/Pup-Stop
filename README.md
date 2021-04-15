@@ -14,7 +14,7 @@
 
 ## Deployed Site
 
-[Production Link](https://jenngreiner.github.io/)
+[Production Link](https://pupstop.herokuapp.com/)
 
 ## User Story
 
@@ -26,9 +26,6 @@ As the owner of a nervous or shy dog, I want to let my dog run around and play i
 
 Pup Stop allows dog owners to rent backyards, providing a safe and controlled environment for some off-leash dog play! Locals can make money by hosting their yard or land, while helping dogs that need private spce to let off some steam. Owners can filter by the type of experience they are lookig for - enclosed areas, distraction-free zones, or puppy playdates.
 
-Click the link below for a video walkthrough.
-
-**[Pup Stop Video Walkthrough](https://drive.google.com/file/d/1ZloeSSO2lyvIVtfjHVM5ugJYg4G8uGeN/view?usp=sharing)**
 
 ## Usage
 
@@ -36,7 +33,6 @@ Dog owners can search for rentals by location and experience. Each yard has a de
 
 Hosts can sign up to host their yard on Pup Stop. Once logged in, hosts can view and manage their reservations in the "My Yard Reservations" screen.
 
-Open the [Work Day Scheduler](https://jenngreiner.github.io/Work-Day-Scheduler-homework5/) in your browser. The current date and time is displayed at the top of the screen. Click on a text area for any given hour and enter a task, then click 'Save' for that hour slot. The color of the time lock will change as the day proceeds; past hours will be grey, the current hour will be red, and future hours will be green.
 
 ## Mock-Up
 
@@ -65,11 +61,6 @@ This application will run in any web browser.
 
 Jenn Greiner, Gabe Quakkelar, Justin Westmoreland
 
-## Database Information
-
-Our information was gathered from Denver historical sites as well as Wikipedia. A link for all our information is below:
-​
-[GoogleDoc](https://docs.google.com/document/d/1mVBUclGq9G25-d3uPH-QxhdmS5a0nWbW60CAPKn2QRQ/edit)
 ​
 
 ## Credits
