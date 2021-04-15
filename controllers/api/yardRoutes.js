@@ -26,15 +26,34 @@ router.delete("/:id", withAuth, async (req, res) => {
       },
     });
 
-    if (!projectData) {
+    if (!yardData) {
       res.status(404).json({ message: "No Yards found with this id!" });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(yardData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// --> /api/yards/#
+// router.post("/haspets", async (req, res) => {
+//   console.log(res);
+//   try {
+//     const yardData = await Yard.findAll({
+//       where: { has_pets: true },
+//     });
+
+//     if (!yardData) {
+//       res.status(404).json({ message: "No Yards found with this feature!" });
+//       return;
+//     }
+
+//     res.status(200).json(yardData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

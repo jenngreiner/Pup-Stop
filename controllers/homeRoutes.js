@@ -132,7 +132,7 @@ router.get("/yard", async (req, res) => {
 
     // Serialize data so the template can read it
     const yards = yardData.map((yard) => yard.get({ plain: true }));
-
+    console.log("all yards " + yards);
     // Pass serialized data and session flag into template
     res.render("viewyards", {
       yards,
@@ -146,7 +146,6 @@ router.get("/yard", async (req, res) => {
 // --> localhost:3001/yard/#
 router.get("/yard/:id", async (req, res) => {
   try {
-    console.log("trying get /yard/:id");
     const yardData = await Yard.findByPk(req.params.id, {
       include: [
         {
@@ -191,13 +190,11 @@ router.get("/hasfence", async (req, res) => {
       ],
     });
     // Serialize data so the template can read it
-    const fenceYards = yardData.map((yard) => yard.get({ plain: true }));
-    console.log(fenceYards);
+    const yards = yardData.map((yard) => yard.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render("viewyards", {
-      ...fenceYards,
-      logged_in: req.session.logged_in,
+      yards,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -219,13 +216,11 @@ router.get("/haswater", async (req, res) => {
       ],
     });
     // Serialize data so the template can read it
-    const waterYards = yardData.map((yard) => yard.get({ plain: true }));
-    console.log(waterYards);
+    const yards = yardData.map((yard) => yard.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render("viewyards", {
-      ...waterYards,
-      logged_in: req.session.logged_in,
+      yards,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -238,7 +233,7 @@ router.get("/haspets", async (req, res) => {
   try {
     // Get all yards where fence is true and JOIN with user data
     const yardData = await Yard.findAll({
-      where: { has_pets: 1 },
+      where: { has_pets: true },
       include: [
         {
           model: User,
@@ -247,13 +242,11 @@ router.get("/haspets", async (req, res) => {
       ],
     });
     // Serialize data so the template can read it
-    const petsYards = yardData.map((yard) => yard.get({ plain: true }));
-    console.log(petsYards);
+    const yards = yardData.map((yard) => yard.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render("viewyards", {
-      ...petsYards,
-      logged_in: req.session.logged_in,
+      yards,
     });
   } catch (err) {
     res.status(500).json(err);
