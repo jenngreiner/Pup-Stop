@@ -1,6 +1,6 @@
     <div class="container">
         <div class="row">
-            <h3 style="margin-top: 50px">My Reservations</h3>
+            <h3 style="margin-top: 50px">{{fname}}'s Reservations</h3>
         </div>
 
         <div class="row">
@@ -18,7 +18,7 @@
                         <tr>
                             <td>Date of Reservation</td>
                             <td>Time of Reservation</td>
-                            <td>Link to Host</td>
+                            <td><a href="/yard/{{appointments.yard_id}}">Link to Host</a></td>
                             <td>
                                 <button style='font-size:24px'> Edit </button>
                             </td>
