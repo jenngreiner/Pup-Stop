@@ -71,14 +71,15 @@ router.get("/myreservations", (req, res) => {
 
 //SCHEDULE
 // --> /schedule/#
-router.get("/schedule/:id", async (req, res) => {
+router.get("/schedule/", async (req, res) => {
   try {
-    console.log("trying get /schedule/:id");
-    const scheduleData = await Yard.findByPk(req.params.id, {
+    console.log("asdas trying get /schedule/:id");
+    const scheduleData = await Appointment.findAll({
+      where: { id: 1 },
       include: [
         {
-          model: Appointment,
-          attributes: ["datetime", "num_pets"],
+          model: Yard,
+          attributes: ["user_id"],
         },
       ],
     });
@@ -154,5 +155,88 @@ router.get("/addyard", (req, res) => {
 });
 
 //Add get routes for each feature
+//HASFENCE
+// --> /yard/hasfence=true
+router.get("/hasfence", async (req, res) => {
+  try {
+    // Get all yards where fence is true and JOIN with user data
+    const yardData = await Yard.findAll({
+      where: { fence: 1 },
+      include: [
+        {
+          model: User,
+          attributes: ["fname", "lname"],
+        },
+      ],
+    });
+    // Serialize data so the template can read it
+    const fenceYards = yardData.map((yard) => yard.get({ plain: true }));
+    console.log(fenceYards);
+
+    // Pass serialized data and session flag into template
+    res.render("viewyards", {
+      ...fenceYards,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//HASWATER
+// --> /yard/hasfence=true
+router.get("/haswater", async (req, res) => {
+  try {
+    // Get all yards where fence is true and JOIN with user data
+    const yardData = await Yard.findAll({
+      where: { water: 1 },
+      include: [
+        {
+          model: User,
+          attributes: ["fname", "lname"],
+        },
+      ],
+    });
+    // Serialize data so the template can read it
+    const waterYards = yardData.map((yard) => yard.get({ plain: true }));
+    console.log(waterYards);
+
+    // Pass serialized data and session flag into template
+    res.render("viewyards", {
+      ...waterYards,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//PUPPYPLAYDATE
+// --> /yard/hasfence=true
+router.get("/haspets", async (req, res) => {
+  try {
+    // Get all yards where fence is true and JOIN with user data
+    const yardData = await Yard.findAll({
+      where: { has_pets: 1 },
+      include: [
+        {
+          model: User,
+          attributes: ["fname", "lname"],
+        },
+      ],
+    });
+    // Serialize data so the template can read it
+    const petsYards = yardData.map((yard) => yard.get({ plain: true }));
+    console.log(petsYards);
+
+    // Pass serialized data and session flag into template
+    res.render("viewyards", {
+      ...petsYards,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
