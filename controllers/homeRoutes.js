@@ -45,7 +45,7 @@ router.get("/profile", withAuth, async (req, res) => {
       include: [
         {
           model: Yard,
-          attributes: ["name", "description"],
+          attributes: ["city", "state", "name", "description"],
         },
       ],
     });
@@ -156,7 +156,7 @@ router.get("/addyard", (req, res) => {
 
 //Add get routes for each feature
 //HASFENCE
-// --> /yard/hasfence=true
+// --> /yard/hasfence
 router.get("/hasfence", async (req, res) => {
   try {
     // Get all yards where fence is true and JOIN with user data
@@ -184,7 +184,7 @@ router.get("/hasfence", async (req, res) => {
 });
 
 //HASWATER
-// --> /yard/hasfence=true
+// --> /yard/haswater
 router.get("/haswater", async (req, res) => {
   try {
     // Get all yards where fence is true and JOIN with user data
@@ -212,7 +212,7 @@ router.get("/haswater", async (req, res) => {
 });
 
 //PUPPYPLAYDATE
-// --> /yard/hasfence=true
+// --> /yard/haspets
 router.get("/haspets", async (req, res) => {
   try {
     // Get all yards where fence is true and JOIN with user data
