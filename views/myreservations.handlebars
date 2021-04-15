@@ -1,42 +1,16 @@
     <div class="container">
         <div class="row">
-            <h3 style="margin-top: 50px">My Reservations</h3>
+            <h3 style="margin-top: 50px">{{fname}}'s Reservations</h3>
         </div>
 
         <div class="row">
             <div class="col-lg-10">
                 <table style="margin-top: 50px" class="table">
-                    <thead class="">
-                        <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">*Link to Host</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
-                            <td>Date of Reservation</td>
-                            <td>Time of Reservation</td>
-                            <td>Link to Host</td>
+                            <td><a href="/yard/{{yardId}}">{{datetime}}</a></td>
                             <td>
-                                <button style='font-size:24px'> Edit </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Date of Reservation</td>
-                            <td>Time of Reservation</td>
-                            <td>Link to Host</td>
-                            <td>
-                                <button style='font-size:24px'> Edit </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Date of Reservation</td>
-                            <td>Time of Reservation</td>
-                            <td>Link to Host</td>
-                            <td>
-                                <button style='font-size:24px'> Edit </button>
+                                <button style=' font-size:24px; border-color: transparent; background-color: transparent; width: 25px; height: 25px;'> <img style=" width: 25px; height: 25px;" src="../img/edit.jpg" alt="edit button"> </button>
                             </td>
                         </tr>
                     </tbody>
