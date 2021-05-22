@@ -38,12 +38,12 @@ Hosts can sign up to host their yard on Pup Stop. Once logged in, hosts can view
 
 The following images demonstrate the Pup Stop appearance and functionality:
 
-![Home Page](./Assets/images/Work-Day-Scheduler.png)
-![Create an account](./Assets/images/Work-Day-Scheduler.png)
-![Become a host](./Assets/images/Work-Day-Scheduler.png)
-![Reserve a Pup Stop](./Assets/images/Work-Day-Scheduler.png)
-![Manage Reservations](./Assets/images/Work-Day-Scheduler.png)
-![Leave a Review](./Assets/images/Work-Day-Scheduler.png)
+![Home Page](./screenshots/homepage.gif)
+![Create an account](./screenshots/createacct.png)
+![Become a host](./screenshots/hostyard.png)
+![Profile](./screenshots/profile.png)
+![Find a Yard](./screenshots/findyard.gif)
+![Login](./screenshots/login.png)
 
 ## Getting Started
 
