@@ -1,46 +1,19 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-class Appointment extends Model {}
-
-Appointment.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    yard_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "yard",
-        key: "id",
-      },
-    },
-    datetime: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    num_pets: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+const appointmentSchema = new Schema({
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "appointment",
-  }
-);
+  yard_id: {
+    type: Schema.Types.ObjectId,
+    ref: "Yard",
+  },
+  num_pets: { Number, default: 0 },
+  date: { type: Date },
+});
+
+const Appointment = mongoose.model("Appointment", appointmentSchema);
 
 module.exports = Appointment;

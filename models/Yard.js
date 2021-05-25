@@ -1,74 +1,23 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-class Yard extends Model {}
-
-Yard.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    zip: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [5],
-      },
-    },
-    rate: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    fence: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    water: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    hasPets: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
+const yardSchema = new Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  address: { type: String, required: true },
+  city: { type: String, required: true },
+  state: { type: String, required: true },
+  zip: { type: Number, required: true },
+  rate: Number,
+  fence: Boolean,
+  water: Boolean,
+  hasPets: Boolean,
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "yard",
-  }
-);
+});
+
+const Yard = mongoose.model("Yard", yardSchema);
 
 module.exports = Yard;

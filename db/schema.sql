@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS pupstop;
-CREATE DATABASE pupstop;

@@ -1,106 +1,70 @@
-# Pup Stop
+# Getting Started with Create React App
 
-### Table of Contents:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- [Deployed Site](#deployed-site)
-- [User Story](#user-story)
-- [Description](#description)
-- [Usage](#Usage)
-- [Mock-Up](#Mock-Up)
-- [Getting Started](#Getting-Started)
-- [Contributors](#Contributors)
-- [Credits](#Credits)
-- [License](#License)
+## Available Scripts
 
-## Deployed Site
+In the project directory, you can run:
 
-[Production Link](https://pupstop.herokuapp.com/)
+### `npm start`
 
-## User Story
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-As a dog owner on the road, I want a place for my pup to run around, so that I don’t have to walk them near dangerous roads.
-As a dog owner that lives in the city, I want to let my dog run around and play in a safe location so that we don't have to walk on a leash.
-As the owner of a nervous or shy dog, I want to let my dog run around and play in an area that doesn’t have a lot of other dogs, so that they can get energy out without being stressed.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Description
+### `npm test`
 
-Pup Stop allows dog owners to rent backyards, providing a safe and controlled environment for some off-leash dog play! Locals can make money by hosting their yard or land, while helping dogs that need private spce to let off some steam. Owners can filter by the type of experience they are lookig for - enclosed areas, distraction-free zones, or puppy playdates.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-## Usage
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Dog owners can search for rentals by location and experience. Each yard has a description, image, and the option to leave reviews for other dog owners. When an ideal pup stop is chosen, owners must sign up to make a reservation. Once logged in, owners can view and manage their existing reservations on the "My Reservations" screen.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Hosts can sign up to host their yard on Pup Stop. Once logged in, hosts can view and manage their reservations in the "My Yard Reservations" screen.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-## Mock-Up
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-The following images demonstrate the Pup Stop appearance and functionality:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-![Home Page](./screenshots/homepage.gif)
-![Create an account](./screenshots/createacct.png)
-![Become a host](./screenshots/hostyard.png)
-![Profile](./screenshots/profile.png)
-![Find a Yard](./screenshots/findyard.gif)
-![Login](./screenshots/login.png)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Getting Started
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-`npm i`
-Rename .env.EXAMPLE and update credentials
-` npm run seed`
-` npm run start`
+## Learn More
 
-## Installation
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-This application will run in any web browser.
-​
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Contributors
+### Code Splitting
 
-Jenn Greiner, Gabe Quakkelar, Justin Westmoreland
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-​
+### Analyzing the Bundle Size
 
-## Credits
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- [W3 Schools](https://www.w3schools.com/)
-- [Node.js](https://nodejs.dev/)
-- [Express.js](https://expressjs.com/)
-- [Handlebars.js](https://handlebarsjs.com/)
-- [NPM](https://www.npmjs.com/)
-- [NPM dotenv](https://www.npmjs.com/package/dotenv)
-- [MDN Web Docs](https://developer.mozilla.org/)
-- [MySQL](https://www.mysql.com/)
-- [POSTMan](https://www.postman.com/)
-- [SwaggerHub](https://swagger.io/tools/swaggerhub/)
-- [Google Maps API](https://developers.google.com/maps)
+### Making a Progressive Web App
 
-## License
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-- MIT License
+### Advanced Configuration
 
-      Copyright (c) 2021
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-      Permission is hereby granted, free of charge, to any person obtaining a copy
-      of this software and associated documentation files (the "Software"), to deal
-      in the Software without restriction, including without limitation the rights
-      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-      copies of the Software, and to permit persons to whom the Software is
-      furnished to do so, subject to the following conditions:
+### Deployment
 
-      The above copyright notice and this permission notice shall be included in all
-      copies or substantial portions of the Software.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-      SOFTWARE.
+### `npm run build` fails to minify
 
----
-
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
